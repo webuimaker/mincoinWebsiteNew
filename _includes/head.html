@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+{% assign pageName = '' %}
+{% assign langPath = site.data.langs[page.lang] %}
+{% assign defaultLangPath = site.data.langs.en %}
+<head>	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Blog Settings -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{{ langPath.head.keywords }}">	
+	<meta name="author" content="{% if page.author %}{{langPath.head.author}}{% else %}{{ langPath.head.author }}{% endif %}">	 
+	<meta name="description" content="{{langPath.head.meta.description}}">	
+	<title>{% if page.title %}{{langPath.head.title}}{% else %}{{ langPath.head.title }}{% endif %}</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	<!-- Bootstrap CSS file -->
+	<link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="{{ site.baseurl }}/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/themify-icons.css">
+    <!-- Blog CSS file -->
+	<link href="{{ site.baseurl}}/css/style.css" rel="stylesheet" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+	<!-- Jekyll SEO Tag Plugin -->
+	{% seo %}
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/en/" hreflang="en">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/nl/" hreflang="nl">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/vi/" hreflang="vi">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/de/" hreflang="de">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/jv/" hreflang="jv">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/ru/" hreflang="ru">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/tr/" hreflang="tr">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/ja/" hreflang="ja">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/kr/" hreflang="kr">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/bn/" hreflang="bn">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/ar/" hreflang="ar">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/zh-hans/" hreflang="zh-hans">
+	<link rel="alternate" href="https://www.mincoinfoundation.com/langs/zh-hant/" hreflang="zh-hant">
+	<!-- Language Redirect -->
+<script>
+    (function () {
+      // Auto redirect to the appropriate language
+      var pathname = window.location.pathname;
+      var isDefaultPathname = (
+        pathname === '' ||
+        pathname === '/'
+      );
+      var DEFAULT_LANG = 'en';
+      var langs={};{% for lang in site.data.langs %}{% if lang[0] != page.lang %}langs['{{ lang[0] }}']=true;{% endif %}{% endfor %}
+
+      var lang = ((navigator.language || navigator.userLanguage || '').split('-') || [])[0];
+
+      if(!langs[lang]) {
+          lang = DEFAULT_LANG;
+      }
+
+      // If the user is not already on a language specific page and it is not the default language
+      if (isDefaultPathname && lang !== DEFAULT_LANG) {
+          window.location.href='/langs/' + lang + '/';
+      }
+  }());
+</script>
+		
+</head>
+

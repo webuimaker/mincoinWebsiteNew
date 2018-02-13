@@ -1,0 +1,31 @@
+<!doctype html>
+{% include head.html %}
+<body>
+{% include header-blog.html%}
+{% include banner-blog.html%}
+
+<div class="container">
+
+<article class="post">  
+  <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time>
+  {{ content }}
+</article>
+
+ <div class="clearfix"></div>
+          <ul class="pager">
+            {% if page.previous.url != " " %}
+            <li class="previous"><a href="{{page.previous.url}}">← Pre</a></li>
+            {% endif %}
+            {% if page.next.url != " " %}
+            <li class="next"><a href="{{page.next.url}}">Next →</a></li>
+            {% endif %}
+          </ul>
+		  
+		
+		  
+</div>
+
+{% include footer-blog.html %}
+{% include js.html %}
+</body>
+</html>

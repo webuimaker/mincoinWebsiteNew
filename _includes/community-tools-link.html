@@ -1,0 +1,40 @@
+<div class="container-fluid section community-tools">    
+	<div class="container">		
+				<div class="row">
+					<div class="col-md-4 col-sm-6 col-links">
+						<p><i class="ti-comment-alt icon"></i></p>
+						<h3>{{ langPath.extraLinks.communityHeading }} </h3>  
+						<ul class="news-list font-sm">		
+								{% for communityLinks in langPath.extraLinks.community %}								
+									<li>								
+										<h4><a href="{{ communityLinks.linkUrl }}" title="{{ communityLinks.linktext }}" target="_blank">{{ communityLinks.linktext }}</a></h4>
+									</li>			
+								{% endfor %}
+						</ul>
+					</div>
+					<div class="col-md-4 col-sm-6 col-links">
+						<p><i class="ti-hummer icon"></i></p>
+						<h3>{{ langPath.extraLinks.toolsHeading }}</h3>
+						<ul class="news-list font-sm">
+							{% for toolsLinks in langPath.extraLinks.tools %}								
+									<li>								
+										<h4><a href="{{ toolsLinks.linkUrl }}" title="{{ toolsLinks.linktext }}" target="_blank">{{ toolsLinks.linktext }}</a></h4>
+									</li>			
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="col-md-4 col-sm-6 col-links">
+						<p><i class="ti-blackboard icon"></i></p> 
+						<h3>{{ langPath.extraLinks.learnHeading }}</h3>					
+						<ul class="news-list font-sm">							
+							{% for learnLinks in langPath.extraLinks.learn %}								
+									<li>								
+										<h4><a href="{{ learnLinks.linkUrl }}" title="{{ learnLinks.linktext }}" target="_blank">{{ learnLinks.linktext }}</a></h4>
+									</li>			
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+</div>
